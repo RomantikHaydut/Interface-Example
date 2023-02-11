@@ -16,10 +16,16 @@ public class Enemy : MonoBehaviour, IDamagable<int>
     public void GetDamage(int damage)
     {
         _health -= damage;
+
+        if (_health <= 0)
+            Die();
     }
 
     public void Die()
     {
         _health = 0;
+
+        print("Enemy Died!!!");
+
     }
 }

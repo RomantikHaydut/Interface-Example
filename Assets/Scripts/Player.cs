@@ -15,12 +15,16 @@ public class Player : MonoBehaviour, IDamagable<float>, IHealable<int>
 
     public void Die()
     {
-        _health = 0;
+        _health= 0;
+        print("Player Died!");
     }
 
     public void GetDamage(float damageAmount)
     {
         _health -= damageAmount;
+
+        if (_health <= 0)
+            Die();
     }
 
     public void GetHeal(int healAmount)
